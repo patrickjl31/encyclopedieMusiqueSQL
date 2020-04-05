@@ -1,0 +1,66 @@
+
+/* Class = "UITextView"; text = "Classica Musica is a musical database that covers 3553 composers and 40799 musical works. For most composers, our database gives access to a wikipedia biography. For musical works, we offer access to their youtube page.\nThis compilation is the fruit of the work of my friend Michel Sarrailh.\nIt is possible that some errors remain in our database, or that some links have been modified, especially in the music database. Report any problems you may have encountered by contacting the developer of this application: \npatrick.lanneau@gmail.com"; ObjectID = "2vy-p6-ade"; */
+"2vy-p6-ade.text" = "Classica Musica est une base de donnée musicale qui couvre 3553 compositeurs et 40799 oeuvres musicales. Pour la plupart des compositeurs, il existe une biographie wikipédia à laquelle notre base donne accès. Pour les oeuvres musicales, nous proposons l’accès à leur page youtube.\nCette compilation est le fruit du travail de mon ami Michel Sarrailh.\nIl est possible qu’il reste quelques erreurs dans notre base, ou bien que certains liens aient étés modifiés, en particulier dans la base musicale. Signalez-nous tout problème que vous auriez pu rencontrer en contactant le dévelopeur de cette application :  \npatrick.lanneau@gmail.com\n\n Lorsque l'application détecte un lien brisé sur youtube, elle vous propose d'envoyer un signalement à notre équipe qui proposera une mise à jour de la base. ";
+
+/* Class = "UILabel"; text = "Classica Musica"; ObjectID = "5n0-dW-65i"; */
+"5n0-dW-65i.text" = "Classica Musica";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "82x-A2-qBf"; */
+"82x-A2-qBf.text" = "Label";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "AG0-hw-9PA"; */
+"AG0-hw-9PA.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "No wikipedia File"; ObjectID = "BhI-px-lUn"; */
+"BhI-px-lUn.text" = "Pas de fiche wikipedia";
+
+/* Class = "UILabel"; text = "About Classica Musica"; ObjectID = "Bxy-gD-8x0"; */
+"Bxy-gD-8x0.text" = "A propos de Classica Musica";
+
+/* Class = "UINavigationItem"; title = "Classica Musica"; ObjectID = "F3q-46-p0U"; */
+"F3q-46-p0U.title" = "Classica Musica";
+
+/* Class = "UILabel"; text = "Boite message"; ObjectID = "GQ6-NN-lSv"; */
+"GQ6-NN-lSv.text" = "Boite message";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "HwQ-IF-7nP"; */
+"HwQ-IF-7nP.text" = "Subtitle";
+
+/* Class = "UISegmentedControl"; OPL-nY-hJG.segmentTitles[0] = "Alphabetic"; ObjectID = "OPL-nY-hJG"; */
+"OPL-nY-hJG.segmentTitles[0]" = "Alphabetique";
+
+/* Class = "UISegmentedControl"; OPL-nY-hJG.segmentTitles[1] = "Birth Date"; ObjectID = "OPL-nY-hJG"; */
+"OPL-nY-hJG.segmentTitles[1]" = "Année";
+
+/* Class = "UISegmentedControl"; OPL-nY-hJG.segmentTitles[2] = "Nation"; ObjectID = "OPL-nY-hJG"; */
+"OPL-nY-hJG.segmentTitles[2]" = "Nation";
+
+/* Class = "UISegmentedControl"; OPL-nY-hJG.segmentTitles[3] = "Playlist"; ObjectID = "OPL-nY-hJG"; */
+"OPL-nY-hJG.segmentTitles[3]" = "Playlist";
+
+/* Class = "UILabel"; text = "My Playlist"; ObjectID = "OW0-2T-e33"; */
+"OW0-2T-e33.text" = "Ma Playlist";
+
+/* Class = "UILabel"; text = "Add to Playlist"; ObjectID = "cFD-WS-fQ5"; */
+"cFD-WS-fQ5.text" = "Ajouter Playlist";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "gz7-iH-cBU"; */
+"gz7-iH-cBU.normalTitle" = "Editer";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "h2t-yS-WjL"; */
+"h2t-yS-WjL.text" = "Title";
+
+/* Class = "UILabel"; text = "Sorted by :"; ObjectID = "iN8-Y6-WTB"; */
+"iN8-Y6-WTB.text" = "Trié par :";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "suQ-lV-Y0r"; */
+"suQ-lV-Y0r.text" = "Title";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "w1b-9N-aaP"; */
+"w1b-9N-aaP.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wOj-no-psa"; */
+"wOj-no-psa.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "xh1-cq-VVI"; */
+"xh1-cq-VVI.text" = "Title";
