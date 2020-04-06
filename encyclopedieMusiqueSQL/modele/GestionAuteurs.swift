@@ -210,118 +210,116 @@ class GestionAuteurs: NSObject {
         }
     }
   
-    
-    
-    //MARK Lecture du fichier JSON
-    func lectureFichierCompositeurs(nomfic:String)   {
+//MARK Lecture du fichier JSON
+   func lectureFichierCompositeurs(nomfic:String)   {
+       
+       if let path = Bundle.main.path(forResource: nomfic, ofType: "json"){
         
-        if let path = Bundle.main.path(forResource: nomfic, ofType: "json"){
-         
-            if let data = NSData(contentsOfFile: path){
-                //print("\(data)")
-                
-                do {
-                    let objet = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
-                    // titreGeneral stocke le nom d'une oeuvre présentée en plusieurs morceaux
-                    var titreGeneral = ""
-                    var compositeurCourant:Compositeur? // = Compositeur()
-                    
-                    // On initialise le compteur du numéro d'identification
-                    var identification = 0
-                    if let dictionnaire = objet as? [[String: AnyObject]]{
-                        //print("\(dictionnaire.count) \n \n \(dictionnaire)")
-                        for fiche in dictionnaire {
-                            let num:String = fiche["n"] as! String
-                            if num == "1"{
+           if let data = NSData(contentsOfFile: path){
+               //print("\(data)")
+               
+               do {
+                   let objet = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments)
+                   // titreGeneral stocke le nom d'une oeuvre présentée en plusieurs morceaux
+                   var titreGeneral = ""
+                   var compositeurCourant:Compositeur? // = Compositeur()
+                   
+                   // On initialise le compteur du numéro d'identification
+                   var identification = 0
+                   if let dictionnaire = objet as? [[String: AnyObject]]{
+                       //print("\(dictionnaire.count) \n \n \(dictionnaire)")
+                       for fiche in dictionnaire {
+                           let num:String = fiche["n"] as! String
+                           if num == "1"{
+                              
+                               let unCompositeur = Compositeur(context: context)
+                               unCompositeur.nom = fiche["nom"] as? String
+                               unCompositeur.nationalite = (fiche["titre"] as! String)
+                               unCompositeur.dateNaissance = (fiche["dn"] as! String)
+                               unCompositeur.dateMort = (fiche["duree"] as! String)
+                               unCompositeur.wiki = (fiche["lien"] as! String)
+                               titreGeneral = ""
+                               compositeurCourant = unCompositeur
+                               (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                           } else {
+                               // si c'est 3, on mémorise le titre "titreGeneral"
+                               if num == "3" {
+                                   titreGeneral = fiche["nom"] as! String
+                               } else {
+                                   // Si c'est 2, on ajoute,
+                                   let uneOeuvre:Oeuvre = Oeuvre(context: context)
+                                   //let uneOeuvre:Oeuvre = NSEntityDescription.insertNewObject(forEntityName: "Oeuvre", into: context)
+                                   //uneOeuvre.titre = fiche["nom"] as! String
+                                   var unTitre = fiche["nom"] as! String
+                                    // Si c'est 4, on ajoute titreGeneral au titre et on ajoute
+                                   if num == "4" {
+                                       //uneOeuvre.titre = titreGeneral + " -> " + uneOeuvre.titre
+                                       unTitre = titreGeneral + " -> " + unTitre
+                                   }
+                                   uneOeuvre.titre = unTitre
+                                   
+                                   uneOeuvre.complement = (fiche["titre"] as! String)
+                                   uneOeuvre.duree = (fiche["duree"] as! String)
+                                   uneOeuvre.lien = (fiche["lien"] as! String)
+                                   uneOeuvre.dateComposition = (fiche["dn"] as! String)
+                                   // Identification
+                                   identification += 1
+                                   //uneOeuvre.setValue(identification, forKey: "id")
+                                   uneOeuvre.id = Int64(identification)
+                                   uneOeuvre.auteur = compositeurCourant
+                                   (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                                   //lesCompositeurs.last?.sesOeuvre.append(uneOeuvre)
+                                   compositeurCourant?.lesOeuvres?.adding(uneOeuvre)
+                                   (UIApplication.shared.delegate as! AppDelegate).saveContext()
+                               }
                                
-                                let unCompositeur = Compositeur(context: context)
-                                unCompositeur.nom = fiche["nom"] as? String
-                                unCompositeur.nationalite = (fiche["titre"] as! String)
-                                unCompositeur.dateNaissance = (fiche["dn"] as! String)
-                                unCompositeur.dateMort = (fiche["duree"] as! String)
-                                unCompositeur.wiki = (fiche["lien"] as! String)
-                                titreGeneral = ""
-                                compositeurCourant = unCompositeur
-                                (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                            } else {
-                                // si c'est 3, on mémorise le titre "titreGeneral"
-                                if num == "3" {
-                                    titreGeneral = fiche["nom"] as! String
-                                } else {
-                                    // Si c'est 2, on ajoute,
-                                    let uneOeuvre:Oeuvre = Oeuvre(context: context)
-                                    //let uneOeuvre:Oeuvre = NSEntityDescription.insertNewObject(forEntityName: "Oeuvre", into: context)
-                                    //uneOeuvre.titre = fiche["nom"] as! String
-                                    var unTitre = fiche["nom"] as! String
-                                     // Si c'est 4, on ajoute titreGeneral au titre et on ajoute
-                                    if num == "4" {
-                                        //uneOeuvre.titre = titreGeneral + " -> " + uneOeuvre.titre
-                                        unTitre = titreGeneral + " -> " + unTitre
-                                    }
-                                    uneOeuvre.titre = unTitre
-                                    
-                                    uneOeuvre.complement = (fiche["titre"] as! String)
-                                    uneOeuvre.duree = (fiche["duree"] as! String)
-                                    uneOeuvre.lien = (fiche["lien"] as! String)
-                                    uneOeuvre.dateComposition = (fiche["dn"] as! String)
-                                    // Identification
-                                    identification += 1
-                                    //uneOeuvre.setValue(identification, forKey: "id")
-                                    uneOeuvre.id = Int64(identification)
-                                    uneOeuvre.auteur = compositeurCourant
-                                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                                    //lesCompositeurs.last?.sesOeuvre.append(uneOeuvre)
-                                    compositeurCourant?.lesOeuvres?.adding(uneOeuvre)
-                                    (UIApplication.shared.delegate as! AppDelegate).saveContext()
-                                }
-                                
-                            }
-                            //print("oeuvres :\(compositeurCourant.lesOeuvres?.count)")
-                        }
-                        // On récupère le tableau des compositeurs
-                        getCompositeurs()
-                        //print("compositeurs récupérés : \(lesCompositeurs.count)")
-                    }
-                } catch {
-                    print("erreur")
-                }
-            }
-        }
- 
-    }
-    
-    func getCompositeurs() {
-        do {
-            lesCompositeurs = try context.fetch(Compositeur.fetchRequest())
-        } catch{
-            print( "Erreur")
-        }
-    }
-    
-    func initialisationNomFichiers(nomFichier:String) -> Any {
-        //var monfic = ""
-        let url = NSURL(string: "http://www.lanneau.org/patrick/serviceapplication/baseOeuvre.json")
-        //let requete = NSURLRequest(url:url as! URL)
-        do{
-            let data = try NSString(contentsOf: url! as URL, encoding: String.Encoding.utf8.rawValue)
-            //monfic = data as String
-            //monfic = try JSONSerialization.jsonObject(with: data as! Data, options: .allowFragments)
-            return data
-        } catch {
-            if let path = Bundle.main.path(forResource: nomFichier, ofType: "json")
-            {
-                if let data = NSData(contentsOfFile: path) {
-                    return data
-                }
-                
-            }
-             return ""
-            
-        }
-        
-        
-    }
-    
+                           }
+                           //print("oeuvres :\(compositeurCourant.lesOeuvres?.count)")
+                       }
+                       // On récupère le tableau des compositeurs
+                       getCompositeurs()
+                       //print("compositeurs récupérés : \(lesCompositeurs.count)")
+                   }
+               } catch {
+                   print("erreur")
+               }
+           }
+       }
+
+   }
+   
+   func getCompositeurs() {
+       do {
+           lesCompositeurs = try context.fetch(Compositeur.fetchRequest())
+       } catch{
+           print( "Erreur")
+       }
+   }
+   
+   func initialisationNomFichiers(nomFichier:String) -> Any {
+       //var monfic = ""
+       let url = NSURL(string: "http://www.lanneau.org/patrick/serviceapplication/baseOeuvre.json")
+       //let requete = NSURLRequest(url:url as! URL)
+       do{
+           let data = try NSString(contentsOf: url! as URL, encoding: String.Encoding.utf8.rawValue)
+           //monfic = data as String
+           //monfic = try JSONSerialization.jsonObject(with: data as! Data, options: .allowFragments)
+           return data
+       } catch {
+           if let path = Bundle.main.path(forResource: nomFichier, ofType: "json")
+           {
+               if let data = NSData(contentsOfFile: path) {
+                   return data
+               }
+               
+           }
+            return ""
+           
+       }
+       
+       
+   }
+
     
     
 }

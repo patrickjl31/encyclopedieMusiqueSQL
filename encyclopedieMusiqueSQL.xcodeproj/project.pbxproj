@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A47BE122376A49A00ADB100 /* Alerte.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A47BE112376A49A00ADB100 /* Alerte.swift */; };
+		2A86DAA1243B61B000FBD078 /* algo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A86DAA0243B61B000FBD078 /* algo.swift */; };
 		2A96EC362375ED38006E0F33 /* extensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EC352375ED38006E0F33 /* extensionView.swift */; };
 		2AB4DBBF1F83C1EA00BEAE51 /* part1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2AE17FF71F82353000DDD055 /* part1.jpg */; };
 		2AB4DBC01F83C1EE00BEAE51 /* contre07.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 2AE17FEF1F82350A00DDD055 /* contre07.JPG */; };
@@ -48,6 +49,7 @@
 		2A2CF8C22095CEAE003941C6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		2A2CF8C32095CEAE003941C6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2A47BE112376A49A00ADB100 /* Alerte.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerte.swift; sourceTree = "<group>"; };
+		2A86DAA0243B61B000FBD078 /* algo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = algo.swift; sourceTree = "<group>"; };
 		2A96EC352375ED38006E0F33 /* extensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionView.swift; sourceTree = "<group>"; };
 		2AD8E5D323CD20ED005ABFB6 /* SearchDeadLinksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDeadLinksController.swift; sourceTree = "<group>"; };
 		2AD8E5D623CD226E005ABFB6 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				2AE1800A1F823D6A00DDD055 /* Reachability.swift */,
 				2AE180041F823D4400DDD055 /* GestionAuteurs.swift */,
 				2ADC6B8723703239003D80B9 /* Constantes.swift */,
+				2A86DAA0243B61B000FBD078 /* algo.swift */,
 			);
 			path = modele;
 			sourceTree = "<group>";
@@ -119,11 +122,11 @@
 		2A96EC342375ED03006E0F33 /* controlleurs */ = {
 			isa = PBXGroup;
 			children = (
+				2AE17FDB1F82317500DDD055 /* ViewController.swift */,
 				2AE180021F823D3300DDD055 /* CompositeurViewController.swift */,
 				2AE180061F823D5800DDD055 /* OeuvreViewController.swift */,
 				2ADC6B89237037CD003D80B9 /* OeuvreWKWebViewController.swift */,
 				2AE180081F823D6000DDD055 /* PlaylistViewController.swift */,
-				2AE17FDB1F82317500DDD055 /* ViewController.swift */,
 				2AE17FF81F82359D00DDD055 /* aboutViewController.swift */,
 				2AD8E5D323CD20ED005ABFB6 /* SearchDeadLinksController.swift */,
 			);
@@ -300,6 +303,7 @@
 				2AE17FDA1F82317500DDD055 /* AppDelegate.swift in Sources */,
 				2AE180071F823D5800DDD055 /* OeuvreViewController.swift in Sources */,
 				2AD8E5DB23CD2307005ABFB6 /* CustomLabel.swift in Sources */,
+				2A86DAA1243B61B000FBD078 /* algo.swift in Sources */,
 				2AE180031F823D3300DDD055 /* CompositeurViewController.swift in Sources */,
 				2ADC6B8823703239003D80B9 /* Constantes.swift in Sources */,
 				2A96EC362375ED38006E0F33 /* extensionView.swift in Sources */,

@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Compositeur" representedClassName="Compositeur" syncable="YES" codeGenerationType="class">
-        <attribute name="dateMort" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateNaissance" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="nationalite" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="nom" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="wiki" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="lesOeuvres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Oeuvre" inverseName="auteur" inverseEntity="Oeuvre" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Compositeur" representedClassName=".Compositeur" syncable="YES" codeGenerationType="class">
+        <attribute name="dateMort" optional="YES" attributeType="String"/>
+        <attribute name="dateNaissance" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="nationalite" optional="YES" attributeType="String"/>
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <attribute name="wiki" optional="YES" attributeType="String"/>
+        <relationship name="lesOeuvres" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Oeuvre" inverseName="auteur" inverseEntity="Oeuvre"/>
     </entity>
-    <entity name="Oeuvre" representedClassName="Oeuvre" syncable="YES" codeGenerationType="class">
-        <attribute name="complement" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dateComposition" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="duree" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="lien" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="titre" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="auteur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Compositeur" inverseName="lesOeuvres" inverseEntity="Compositeur" syncable="YES"/>
+    <entity name="Oeuvre" representedClassName=".Oeuvre" syncable="YES" codeGenerationType="class">
+        <attribute name="complement" optional="YES" attributeType="String"/>
+        <attribute name="dateComposition" optional="YES" attributeType="String"/>
+        <attribute name="duree" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="lien" optional="YES" attributeType="String"/>
+        <attribute name="titre" optional="YES" attributeType="String"/>
+        <relationship name="auteur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Compositeur" inverseName="lesOeuvres" inverseEntity="Compositeur"/>
     </entity>
     <elements>
         <element name="Compositeur" positionX="-396" positionY="-153" width="128" height="148"/>
